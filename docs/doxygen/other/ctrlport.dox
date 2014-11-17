@@ -1,0 +1,23 @@
+/*! \page page_ctrlport ControlPort
+
+\section Introduction
+
+This is the ControlPort package. It is a tool to create distributed
+control applications for GNU Radio. It provides blocks that can be
+connected to an output stream to plot the signal remotely. It also
+provides an API that allows blocks to export variables that can be
+set, monitored, and plotted remotely.
+
+ControlPort-specific functions and utilities are found in the
+'ctrlport' namespace. From Python, access is done using the
+gnuradio.ctrlport module, imported as:
+
+\code
+    from gnuradio import ctrlport
+\endcode
+
+ControlPort is currently a temporary stub implementation of a set of
+RPC calls we would like to enable that would allow remote viewing,
+command, and control of GNU Radio flowgraphs and blocks.
+
+*/

@@ -1,0 +1,8 @@
+# This file contains system wide configuration data for GNU Radio.
+# You may override any setting on a per-user basis by editing
+# ~/.gnuradio/config.conf
+
+[grc]
+global_blocks_path = @blocksdir@
+local_blocks_path =
+xterm_executable = xterm

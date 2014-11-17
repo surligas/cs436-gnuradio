@@ -1,0 +1,5 @@
+<cat>
+  <name></name> <!-- Blank for Root Name -->
+
+    <block>s436_hello_world_sync_block</block>
+</cat>

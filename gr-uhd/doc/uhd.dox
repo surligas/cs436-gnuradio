@@ -1,0 +1,148 @@
+/*! \page page_uhd UHD Interface
+
+\section Introduction
+This is the GNU Radio UHD package. It is the interface to the UHD
+library to connect to and send and receive data between the Ettus
+Research, LLC product line. To use the UHD blocks, the Python
+namespaces is in gnuradio.uhd, which would be normally imported
+as:
+
+\code
+    from gnuradio import uhd
+\endcode
+
+The relevant blocks are listed in the \ref uhd_blk group.
+
+A quick listing of the details can be found in Python after importing
+by using:
+
+\code
+    help(uhd)
+\endcode
+
+
+\section uhd_external_docs External Documentation
+
+Ettus Research maintains the comprehensive documentation to the underlying UHD driver, which can be found at:
+
+http://files.ettus.com/uhd_docs/manual/html/
+
+The UHD Doxygen page is located at:
+
+http://files.ettus.com/uhd_docs/doxygen/html/index.html
+
+
+\section uhd_command_syntax Command Syntax
+
+The UHD sink and source can be controlled by a message port. These message ports
+take commands, which are PMTs formatted as such:
+
+    (command, value, [channel])
+
+A command PMT is either a pair or a tuple. If it's a tuple, it must have either 2 or 3 elements.
+Any other type of PMT will throw an error.
+
+The `command` part is a string, which defines the command. `value` is a PMT whose format depends
+on the command issued. Finally, `channel` is an integer PMT value that specifies which channel
+this command shall be specified on. If this value is omitted, then it either applies this command
+to all channels or channel zero, depending on which command is used.
+
+Example:
+\code{.cpp}
+pmt::pmt_t command = pmt::cons( // We make a pair, but pmt::make_tuple() is also valid!
+    pmt::mp("freq"), // Use the 'freq' command, which sets the frequency
+    pmt::mp(1.1e9) // Set the frequency to 1.1 GHz
+);
+\endcode
+
+This PMT would set the frequency to 1.1 GHz on all channels. We make use of the pmt::mp() function
+which automatically sets the PMT types. Assume we only want to set the frequency on channel 1
+(i.e. the second channel). In this case, we must construct a tuple:
+\code{.cpp}
+pmt::pmt_t command = pmt::make_tuple(
+    pmt::mp("freq"), // Use the 'freq' command, which sets the frequency
+    pmt::mp(1.1e9) // Set the frequency to 1.1 GHz
+    pmt::mp(1) // Select channel 1
+);
+\endcode
+
+
+\subsection uhd_command_syntax_cmds Common commands
+
+The following commands are understood by both UHD Source and Sink:
+
+Command name | Value Type | Description
+-------------|------------|-------------------------------------------------------------
+`freq`       | double     | Sets the Tx or Rx frequency. Defaults to all channels.
+`lo_offset`  | double     | Sets an LO offset. Defaults to all channels.
+`gain`       | double     | Sets the Tx or Rx gain (in dB). Defaults to all channels.
+
+
+\section Configuring a UHD object
+
+A typical option parser setup for a UHD device looks like
+
+\code
+    parser = OptionParser(option_class=eng_option)
+    parser.add_option("-a", "--args", type="string", default="",
+                      help="UHD device address args , [default=%default]")
+    parser.add_option("", "--spec", type="string", default=None,
+                      help="Subdevice of UHD device where appropriate")
+    parser.add_option("-A", "--antenna", type="string", default=None,
+                      help="select Rx Antenna where appropriate")
+    parser.add_option("-s", "--samp-rate", type="eng_float", default=1e6,
+                      help="set sample rate (bandwidth) [default=%default]")
+    parser.add_option("-f", "--freq", type="eng_float", default=None,
+                      help="set frequency to FREQ", metavar="FREQ")
+    parser.add_option("-g", "--gain", type="eng_float", default=None,
+                      help="set gain in dB (default is midpoint)")
+\endcode
+
+To use these options to create a UHD source object:
+
+\code
+    self.u = uhd.usrp_source(device_addr=options.args,
+                             io_type=uhd.io_type.COMPLEX_FLOAT32,
+                             num_channels=1)
+
+    self.u.set_samp_rate(options.samp_rate)
+
+    # if no gain was specified, use the mid-point in dB
+    if options.gain is None:
+        g = self.u.get_gain_range()
+        options.gain = float(g.start()+g.stop())/2
+    self.u.set_gain(options.gain, 0)
+
+    # Set the center frequency
+    self.u.set_center_freq(options.freq, 0)
+
+    # Set the subdevice spec
+    if(options.spec):
+        self.u.set_subdev_spec(options.spec, 0)
+
+     # Set the antenna
+     if(options.antenna):
+        self.u.set_antenna(options.antenna, 0)
+\endcode
+
+Frequently, your application may need a sample rate that is not
+supported by the UHD device. If you have extra CPU power to spare, you
+can easily set the sample rate you want, then ask the device what the
+actual sample rate set was. Then, you can easily create an arbitrary
+resampler to take care of the difference.
+
+\code
+    self.u.set_samp_rate(options.samp_rate)
+
+    desired_rate = options.samp_rate
+    actual_rate = self.u.get_samp_rate()
+    resample = desired_rate / actual_rate
+
+    # Use the filter.pfb version and pass only the resample factor.
+    # This block builds a half-band filter for you
+
+    self.resampler = filter.pfb.arb_resampler_ccf(resample)
+\endcode
+
+*/
+// vim: set ft=doxygen:

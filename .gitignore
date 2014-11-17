@@ -1,0 +1,8 @@
+*~
+*.pyc
+*.pyo
+*.kdev4
+.kdev4/*
+.project
+.cproject
+build/
