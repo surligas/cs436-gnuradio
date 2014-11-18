@@ -14,7 +14,14 @@
 	<callback>set_imag_multiplier($imag_mult)</callback>
 	<param>
 		<name>Real Multiplier</name>
-		<key>1</key>
+		<key>real_mult</key>
+		<value>1.0</value>
+		<type>real</type>
+	</param>
+	
+	<param>
+		<name>Imaginary Multiplier</name>
+		<key>imag_mult</key>
 		<value>1.0</value>
 		<type>real</type>
 	</param>

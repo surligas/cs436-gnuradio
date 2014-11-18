@@ -65,7 +65,7 @@ CPACK_COMPONENT("cs436_swig"
 add_subdirectory(include/gnuradio/cs436)
 add_subdirectory(lib)
 if(ENABLE_PYTHON)
-add_subdirectory(python)
+add_subdirectory(python/cs436)
 add_subdirectory(grc)
 add_subdirectory(swig)
 endif(ENABLE_PYTHON)

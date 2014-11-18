@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+## EVM and BER block
+## * two input complex streams of vlen size	
+## * two output float streams
+###################################################
+ -->
+<block>
+	<name>EVM and BER</name>
+	<key>cs436_evm</key>
+	<import>from gnuradio import cs436</import>
+	<make>cs436.evm($real_mult, $imag_mult, $samp_rate)</make>
+	<param>
+		<name>Input vector length</name>
+		<key>vlen</key>
+		<type>int</type>
+	</param>
+	
+	<param>
+		<name>Sampling Rate</name>
+		<key>samp_rate</key>
+		<type>real</type>
+	</param>
+
+	<sink>
+		<name>reference</name>
+		<type>complex</type>
+		<vlen>vlen</vlen>
+	</sink>
+	
+	<sink>
+		<name>in</name>
+		<type>complex</type>
+		<vlen>vlen</vlen>
+	</sink>
+	
+	<source>
+		<name>evm</name>
+		<type>float</type>
+		<vlen>1</vlen>
+	</source>
+	<source>
+		<name>ber</name>
+		<type>float</type>
+		<vlen>1</vlen>
+	</source>
+</block>

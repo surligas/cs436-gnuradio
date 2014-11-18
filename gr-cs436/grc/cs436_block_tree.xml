@@ -1,5 +1,8 @@
 <cat>
   <name></name> <!-- Blank for Root Name -->
-
-    <block>s436_hello_world_sync_block</block>
+	<cat>
+	<name>CS 436 Module</name>
+	<block>cs436_evm</block>
+    <block>cs436_hello_world_sync_block</block>
+    </cat>
 </cat>

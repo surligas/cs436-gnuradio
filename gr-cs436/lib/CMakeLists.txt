@@ -22,6 +22,7 @@ endif(ENABLE_GR_CTRLPORT)
 # Setup library
 ########################################################################
 list(APPEND cs436_sources
+  evm_impl.cc
   hello_world_sync_block_impl.cc
 )
 
