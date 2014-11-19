@@ -203,49 +203,6 @@
     </param>
   </block>
   <block>
-    <key>cs436_hello_world_sync_block</key>
-    <param>
-      <key>id</key>
-      <value>cs436_hello_world_sync_block_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>real_mult</key>
-      <value>real_mult</value>
-    </param>
-    <param>
-      <key>imag_mult</key>
-      <value>imag_mult</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(336, 112)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
     <key>variable_qtgui_range</key>
     <param>
       <key>id</key>
@@ -416,6 +373,49 @@
     <param>
       <key>_coordinate</key>
       <value>(112, 304)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>cs436_hello_world_sync_block</key>
+    <param>
+      <key>id</key>
+      <value>cs436_hello_world_sync_block_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>real_mult</key>
+      <value>real_mult</value>
+    </param>
+    <param>
+      <key>imag_mult</key>
+      <value>imag_mult</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(424, 136)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -762,7 +762,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(776, 118)</value>
+      <value>(776, 126)</value>
     </param>
     <param>
       <key>_rotation</key>

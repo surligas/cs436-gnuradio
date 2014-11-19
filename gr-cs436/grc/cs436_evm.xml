@@ -10,7 +10,7 @@
 	<name>EVM and BER</name>
 	<key>cs436_evm</key>
 	<import>from gnuradio import cs436</import>
-	<make>cs436.evm($real_mult, $imag_mult, $samp_rate)</make>
+	<make>cs436.evm($vlen, $modulation, $samp_rate)</make>
 	<param>
 		<name>Input vector length</name>
 		<key>vlen</key>
@@ -21,6 +21,24 @@
 		<name>Sampling Rate</name>
 		<key>samp_rate</key>
 		<type>real</type>
+	</param>
+	
+	<param>
+		<name>Modulation</name>
+		<key>modulation</key>
+		<type>enum</type>
+		<option>
+			<name>BPSK</name>
+			<key>BPSK</key>
+		</option>
+		<option>
+			<name>QPSK</name>
+			<key>QPSK</key>
+		</option>
+		<option>
+			<name>QAM16</name>
+			<key>QAM16</key>
+		</option>
 	</param>
 
 	<sink>
