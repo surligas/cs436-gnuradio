@@ -1,0 +1,26 @@
+This is the CS 436 module of GNU Radio for the 
+cs436 lesson (www.csd.uoc.gr/~hy436).
+
+This modules includes the following directories:
+
+** gr-cs436/examples **
+ Provides some .grc examples flowgraphs for testing and getting familiar with SDRs.
+ Also the incomplete FM Receiver for Task 1.
+
+** gr-cs436/include **
+Some gloabl available header files. Nothing to do here
+
+** gr-cs436/lib **
+This directory contains all the implementation files. CHECK OUT the hello world
+class as it contains several usefull inline comments.
+For the second task (EVM and BER) you have to write your code in the
+evm_impl.cc file
+
+** gr-cs436/python **
+Python necessary files. Nothing to do here
+
+** gr-cs436/grc **
+GNU Radio companion related files. Nothing to do here.   
+
+** gr-cs436/grc **
+Python - C++ bindings. Nothing to do here. 
