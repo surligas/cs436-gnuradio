@@ -29,15 +29,15 @@
 		<type>enum</type>
 		<option>
 			<name>BPSK</name>
-			<key>BPSK</key>
+			<key>2</key>
 		</option>
 		<option>
 			<name>QPSK</name>
-			<key>QPSK</key>
+			<key>4</key>
 		</option>
 		<option>
 			<name>QAM16</name>
-			<key>QAM16</key>
+			<key>16</key>
 		</option>
 	</param>
 

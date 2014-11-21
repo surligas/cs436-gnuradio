@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 ##################################################
 # Gnuradio Python Flow Graph
-# Title: Top Block
-# Generated: Fri Nov 21 03:30:46 2014
+# Title: Evm Simulation
+# Generated: Fri Nov 21 03:33:48 2014
 ##################################################
 
 from PyQt4 import Qt
@@ -21,12 +21,12 @@ import sip
 import sys
 
 from distutils.version import StrictVersion
-class top_block(gr.top_block, Qt.QWidget):
+class evm_simulation(gr.top_block, Qt.QWidget):
 
     def __init__(self):
-        gr.top_block.__init__(self, "Top Block")
+        gr.top_block.__init__(self, "Evm Simulation")
         Qt.QWidget.__init__(self)
-        self.setWindowTitle("Top Block")
+        self.setWindowTitle("Evm Simulation")
         try:
              self.setWindowIcon(Qt.QIcon.fromTheme('gnuradio-grc'))
         except:
@@ -43,7 +43,7 @@ class top_block(gr.top_block, Qt.QWidget):
         self.top_grid_layout = Qt.QGridLayout()
         self.top_layout.addLayout(self.top_grid_layout)
 
-        self.settings = Qt.QSettings("GNU Radio", "top_block")
+        self.settings = Qt.QSettings("GNU Radio", "evm_simulation")
         self.restoreGeometry(self.settings.value("geometry").toByteArray())
 
 
@@ -139,7 +139,7 @@ class top_block(gr.top_block, Qt.QWidget):
 
 
     def closeEvent(self, event):
-        self.settings = Qt.QSettings("GNU Radio", "top_block")
+        self.settings = Qt.QSettings("GNU Radio", "evm_simulation")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
 
@@ -179,7 +179,7 @@ if __name__ == '__main__':
     if(StrictVersion(Qt.qVersion()) >= StrictVersion("4.5.0")):
         Qt.QApplication.setGraphicsSystem(gr.prefs().get_string('qtgui','style','raster'))
     qapp = Qt.QApplication(sys.argv)
-    tb = top_block()
+    tb = evm_simulation()
     tb.start()
     tb.show()
     def quitting():

@@ -31,14 +31,6 @@ namespace cs436
  * @return shared pointer of the EVM block
  */
 evm::sptr
-evm::make(const size_t vlen, const constellation_t constellation,
-          const float sampling_rate)
-{
-	return gnuradio::get_initial_sptr(new evm_impl(vlen, constellation,
-	                                               sampling_rate));
-}
-
-evm::sptr
 evm::make(const size_t vlen, const int constellation, const float sampling_rate)
 {
 	return gnuradio::get_initial_sptr(new evm_impl(vlen,

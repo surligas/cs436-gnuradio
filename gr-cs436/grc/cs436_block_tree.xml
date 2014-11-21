@@ -4,5 +4,6 @@
 	<name>CS 436 Module</name>
 	<block>cs436_evm</block>
     <block>cs436_hello_world_sync_block</block>
+    <block>cs436_constellation_source</block>
     </cat>
 </cat>

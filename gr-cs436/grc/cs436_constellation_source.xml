@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+###################################################
+## Random Constellation source block
+###################################################
+ -->
+<block>
+	<name>Random Constellation Source</name>
+	<key>cs436_constellation_source</key>
+	<import>from gnuradio import cs436</import>
+	<make>cs436.constellation_source($vlen, $modulation)</make>
+	<param>
+		<name>Vector length</name>
+		<key>vlen</key>
+		<type>int</type>
+	</param>
+	
+	<param>
+		<name>Modulation</name>
+		<key>modulation</key>
+		<type>enum</type>
+		<option>
+			<name>BPSK</name>
+			<key>2</key>
+		</option>
+		<option>
+			<name>QPSK</name>
+			<key>4</key>
+		</option>
+		<option>
+			<name>QAM16</name>
+			<key>16</key>
+		</option>
+	</param>
+	
+	<source>
+		<name>out</name>
+		<type>complex</type>
+		<vlen>vlen</vlen>
+	</source>
+</block>
